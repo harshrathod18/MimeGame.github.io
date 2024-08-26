@@ -1,32 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
     onLoadSet();
   });
-
+  function random(array) {
+    return array[Math.floor((Math.random()*array.length))];
+  }
 function getRandomNumbers(){
+    let allNumbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
     let numbers = [];
-    let x = Math.random() * 10;
-    let r1 =  Math.floor(x);
-    let a = Math.random() * 10;
-    let r2 =  Math.floor(a);
-    if(r2 == r1){
-        r2++;
-    }
-    let c = Math.random() * 10;
-    let d =  Math.floor(c);
-    let e = Math.random() * 10;
-    let f =  Math.floor(e);
-    let r3 = d + r1;
-    let r4 = f + r2;
-    if(r3 == r1 || r3 == r2){
-        r3++;
-    }
-    if(r4 == r3 || r4 == r1 || r4 == r2){
-        r4++;
-    }
-    if(r1 == 0){r1++;}
-    if(r2 == 0){r2++;}
-    if(r3 == 0){r3++;}
-    if(r4 == 0){r4++;}
+    let r1 = random(allNumbers);
+    let r2 = random(allNumbers);
+    let r3 = random(allNumbers);
+    let r4 = random(allNumbers);
     numbers.push(r1,r2,r3,r4);
     return numbers;
 }
@@ -53,7 +37,7 @@ function checkBomb(value){
         var style = document.createElement('style');
         style.innerHTML = `#mainDiv { pointer-events: none; }`;
         document.head.appendChild(style);
-        alert("you lost");
+        alert("Game Over");
         setTimeout(() => {
             location.reload();
         }, 3000);
